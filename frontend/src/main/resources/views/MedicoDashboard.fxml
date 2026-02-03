@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.agendamento.fx.controller.MedicoDashboardController"
+            stylesheets="@../styles/style.css"
+            styleClass="background">
+
+    <top>
+        <VBox styleClass="header" spacing="8">
+            <padding>
+                <Insets top="25" right="30" bottom="25" left="30"/>
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="25">
+                <Label text="MediSchedule" styleClass="header-title"/>
+                <VBox spacing="6">
+                    <Label fx:id="lblNomeMedico" text="Dr(a). Carregando..."
+                           style="-fx-font-size: 20px; -fx-font-weight: 800; -fx-text-fill: white;"/>
+                    <HBox spacing="20">
+                        <Label fx:id="lblEspecialidade" text="Especialidade: Carregando..."
+                               style="-fx-font-size: 14px; -fx-text-fill: rgba(255,255,255,0.9);"/>
+                        <Label fx:id="lblCRM" text="CRM: Carregando..."
+                               style="-fx-font-size: 14px; -fx-text-fill: rgba(255,255,255,0.9);"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+            <Label text="Dashboard Médico - Gerencie suas consultas e pacientes"
+                   styleClass="header-subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox styleClass="content-area" spacing="30">
+                <padding>
+                    <Insets top="30" right="30" bottom="30" left="30"/>
+                </padding>
+
+                <!-- Seção: Consultas Agendadas -->
+                <VBox styleClass="card" spacing="20">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25"/>
+                    </padding>
+
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <VBox spacing="5">
+                            <Label text="Consultas Agendadas" styleClass="card-header"/>
+                            <Label text="Gerencie as consultas dos seus pacientes"
+                                   style="-fx-text-fill: #7F8C8D; -fx-font-size: 14px;"/>
+                        </VBox>
+                        <Button fx:id="btnAtualizar" text="Atualizar"
+                                styleClass="button-secondary button-small"
+                                prefWidth="120"/>
+                    </HBox>
+
+                    <TableView fx:id="consultasTable" styleClass="table-view" prefHeight="400">
+                        <columns>
+                            <TableColumn fx:id="colPaciente" text="Paciente" prefWidth="250"/>
+                            <TableColumn fx:id="colData" text="Data/Hora" prefWidth="180"/>
+                            <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="320"/>
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+                            <TableColumn fx:id="colAcoes" text="Ações" prefWidth="180"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <padding>
+                            <Insets top="20"/>
+                        </padding>
+                        <Button fx:id="btnConfirmar" text="Confirmar Selecionada"
+                                styleClass="button-success button-small"
+                                prefWidth="180"/>
+                        <Button fx:id="btnCancelar" text="Cancelar Selecionada"
+                                styleClass="button-danger button-small"
+                                prefWidth="180"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Informações -->
+                <VBox styleClass="info-box" spacing="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="Instruções:" styleClass="info-box-title"/>
+                    <Label text="• Selecione uma consulta na tabela para confirmar ou cancelar"
+                           styleClass="info-box-text"/>
+                    <Label text="• Consultas confirmadas aparecem em verde na tabela"
+                           styleClass="info-box-text"/>
+                    <Label text="• Consultas canceladas aparecem em vermelho na tabela"
+                           styleClass="info-box-text"/>
+                </VBox>
+
+                <!-- Estatísticas Rápidas -->
+                <GridPane hgap="20" vgap="20" styleClass="card">
+                    <padding>
+                        <Insets top="25" right="25" bottom="25" left="25"/>
+                    </padding>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="200"/>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="200"/>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="200"/>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="200"/>
+                    </columnConstraints>
+
+                    <VBox alignment="CENTER" spacing="8" GridPane.columnIndex="0">
+                        <Label text="Total de Consultas"
+                               style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                        <Label text="12"
+                               style="-fx-font-size: 32px; -fx-font-weight: 800; -fx-text-fill: #3498DB;"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="8" GridPane.columnIndex="1">
+                        <Label text="Agendadas"
+                               style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                        <Label text="8"
+                               style="-fx-font-size: 32px; -fx-font-weight: 800; -fx-text-fill: #F39C12;"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="8" GridPane.columnIndex="2">
+                        <Label text="Confirmadas"
+                               style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                        <Label text="3"
+                               style="-fx-font-size: 32px; -fx-font-weight: 800; -fx-text-fill: #27AE60;"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="8" GridPane.columnIndex="3">
+                        <Label text="Realizadas"
+                               style="-fx-font-size: 14px; -fx-text-fill: #7F8C8D;"/>
+                        <Label text="1"
+                               style="-fx-font-size: 32px; -fx-font-weight: 800; -fx-text-fill: #3498DB;"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Progress Indicator -->
+                <ProgressIndicator fx:id="progressIndicator" visible="false"
+                                   prefWidth="48" prefHeight="48">
+                    <VBox.margin>
+                        <Insets top="30"/>
+                    </VBox.margin>
+                </ProgressIndicator>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="footer" spacing="25" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            <Label text="© 2026 MediSchedule - Painel Médico - Sistema de Agendamento - Versão 1.0.0"
+                   styleClass="footer-text"/>
+            <Button fx:id="btnSair" text="Sair do Sistema"
+                    styleClass="button-secondary button-small"/>
+        </HBox>
+    </bottom>
+</BorderPane>

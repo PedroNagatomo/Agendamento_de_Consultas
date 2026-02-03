@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.agendamento.fx.controller.LoginController"
+            stylesheets="@../styles/style.css"
+            styleClass="background">
+
+    <center>
+        <VBox alignment="CENTER" spacing="25">
+            <padding>
+                <Insets top="50" bottom="50"/>
+            </padding>
+
+            <!-- Logo/Header -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="MediSchedule"
+                       style="-fx-font-size: 36px; -fx-font-weight: 800; -fx-text-fill: #1A5276;"/>
+                <Label text="Sistema de Agendamento de Consultas"
+                       style="-fx-font-size: 16px; -fx-text-fill: #34495E; -fx-font-weight: 500;"/>
+            </VBox>
+
+            <!-- Card de Login -->
+            <VBox styleClass="login-container" alignment="CENTER" spacing="25">
+                <padding>
+                    <Insets top="35" right="35" bottom="35" left="35"/>
+                </padding>
+
+                <Label text="Login"
+                       style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-text-fill: #1A5276; -fx-padding: 0 0 20px 0;"/>
+
+                <!-- Campos de Login Centralizados -->
+                <VBox alignment="CENTER" spacing="20" prefWidth="350">
+                    <!-- Campo Email -->
+                    <VBox alignment="CENTER_LEFT" spacing="5">
+                        <Label text="Email" styleClass="form-label"/>
+                        <TextField fx:id="usernameField" promptText="seu@email.com"
+                                   styleClass="form-field" prefWidth="320"/>
+                    </VBox>
+
+                    <!-- Campo Senha -->
+                    <VBox alignment="CENTER_LEFT" spacing="5">
+                        <Label text="Senha" styleClass="form-label"/>
+                        <PasswordField fx:id="passwordField" promptText="Digite sua senha"
+                                       styleClass="form-field" prefWidth="320"/>
+                    </VBox>
+
+                    <!-- Campo Tipo de Usuário -->
+                    <VBox alignment="CENTER_LEFT" spacing="5">
+                        <Label text="Tipo de Usuário" styleClass="form-label"/>
+                        <ComboBox fx:id="tipoUsuarioComboBox"
+                                  styleClass="form-field" prefWidth="320"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Botão de Login -->
+                <Button fx:id="loginButton" text="Entrar no Sistema"
+                        styleClass="button-primary"
+                        prefWidth="320" prefHeight="48"
+                        style="-fx-font-size: 16px; -fx-font-weight: 600;"/>
+
+                <Separator prefWidth="300">
+                    <padding>
+                        <Insets top="15" bottom="15"/>
+                    </padding>
+                </Separator>
+
+                <!-- Botão Cadastrar -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Não tem uma conta?"
+                           style="-fx-text-fill: #7F8C8D; -fx-font-size: 14px;"/>
+                    <Button fx:id="btnCadastrar" text="Cadastrar-se"
+                            styleClass="button-secondary"
+                            prefWidth="200" prefHeight="40"/>
+                </VBox>
+            </VBox>
+
+            <!-- Footer -->
+            <VBox alignment="CENTER" spacing="5">
+                <padding>
+                    <Insets top="25"/>
+                </padding>
+                <Label text="© 2026 MediSchedule - Todos os direitos reservados"
+                       style="-fx-text-fill: #7F8C8D; -fx-font-size: 12px;"/>
+                <Label text="Versão 1.0.0"
+                       style="-fx-text-fill: #7F8C8D; -fx-font-size: 11px;"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

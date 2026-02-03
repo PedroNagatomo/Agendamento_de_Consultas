@@ -1,0 +1,10 @@
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\AgendamentoApp.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\AppContext.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\controller\AdminDashboardController.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\controller\CadastroController.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\controller\LoginController.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\controller\MedicoDashboardController.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\controller\PacienteDashboardController.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\model\PacienteDTO.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\service\ApiService.java
+E:\Projects\agendamento-consultas\frontend\src\main\java\com\agendamento\fx\service\AuthService.java

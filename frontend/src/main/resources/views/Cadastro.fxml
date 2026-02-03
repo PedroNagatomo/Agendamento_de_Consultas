@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.agendamento.fx.controller.CadastroController"
+            stylesheets="@../styles/style.css"
+            styleClass="background">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane">
+            <VBox alignment="TOP_CENTER" spacing="20">
+                <padding>
+                    <Insets top="30" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Header -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="Cadastro de Usuário"
+                           style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"/>
+                    <Label text="Preencha os dados para criar sua conta"
+                           styleClass="subtitle"/>
+                </VBox>
+
+                <!-- Formulário principal -->
+                <VBox styleClass="main-container" spacing="25" prefWidth="800">
+                    <padding>
+                        <Insets top="20" right="30" bottom="30" left="30"/>
+                    </padding>
+
+                    <Label text="Dados Básicos" styleClass="title"/>
+
+                    <GridPane hgap="15" vgap="15">
+                        <padding>
+                            <Insets top="10" bottom="10"/>
+                        </padding>
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300"/>
+                        </columnConstraints>
+
+                        <!-- Linha 1 -->
+                        <Label text="Nome completo:*" styleClass="form-label"
+                               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtNome" promptText="Digite seu nome completo"
+                                   styleClass="form-field"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <!-- Linha 2 -->
+                        <Label text="Email:*" styleClass="form-label"
+                               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtEmail" promptText="exemplo@email.com"
+                                   styleClass="form-field"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <!-- Linha 3 -->
+                        <Label text="Senha:*" styleClass="form-label"
+                               GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <PasswordField fx:id="txtSenha" promptText="Mínimo 6 caracteres"
+                                       styleClass="form-field"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <!-- Linha 4 -->
+                        <Label text="Confirmar Senha:*" styleClass="form-label"
+                               GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <PasswordField fx:id="txtConfirmarSenha" promptText="Digite novamente"
+                                       styleClass="form-field"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <!-- Linha 5 -->
+                        <Label text="CPF:*" styleClass="form-label"
+                               GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtCpf" promptText="000.000.000-00"
+                                   styleClass="form-field"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <!-- Linha 6 -->
+                        <Label text="Telefone:*" styleClass="form-label"
+                               GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtTelefone" promptText="(11) 99999-9999"
+                                   styleClass="form-field"
+                                   GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                        <!-- Linha 7 -->
+                        <Label text="Tipo de Usuário:*" styleClass="form-label"
+                               GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="comboTipoUsuario" styleClass="form-field"
+                                  GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <!-- Seção de Médico -->
+                    <VBox fx:id="medicoFields" styleClass="card" spacing="15" visible="false">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+
+                        <Label text="Dados Profissionais do Médico" styleClass="card-header"/>
+
+                        <GridPane hgap="15" vgap="15">
+                            <padding>
+                                <Insets top="10" bottom="10"/>
+                            </padding>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300"/>
+                            </columnConstraints>
+
+                            <Label text="CRM:*" styleClass="form-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtCRM" promptText="CRM/SP 123456"
+                                       styleClass="form-field"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Especialidade:*" styleClass="form-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="comboEspecialidade" styleClass="form-field"
+                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Seção de Paciente -->
+                    <VBox fx:id="pacienteFields" styleClass="card" spacing="15" visible="false">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+
+                        <Label text="Dados do Paciente" styleClass="card-header"/>
+
+                        <GridPane hgap="15" vgap="15">
+                            <padding>
+                                <Insets top="10" bottom="10"/>
+                            </padding>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300"/>
+                            </columnConstraints>
+
+                            <Label text="Data de Nascimento:" styleClass="form-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <DatePicker fx:id="dateNascimento" styleClass="date-picker"
+                                        GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                            <Label text="Observações:" styleClass="form-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextArea fx:id="txtObservacoes" promptText="Observações (opcional)"
+                                      styleClass="text-area" prefRowCount="3"
+                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Botões -->
+                    <HBox spacing="15" alignment="CENTER">
+                        <padding>
+                            <Insets top="20"/>
+                        </padding>
+                        <Button fx:id="btnCadastrar" text="Cadastrar"
+                                styleClass="button-success"
+                                prefWidth="150" prefHeight="45"/>
+
+                        <Button fx:id="btnVoltar" text="Voltar para Login"
+                                styleClass="button-secondary"
+                                prefWidth="150" prefHeight="45"/>
+                    </HBox>
+
+                    <!-- Informações -->
+                    <VBox styleClass="info-box" spacing="5">
+                        <padding>
+                            <Insets top="15" right="15" bottom="15" left="15"/>
+                        </padding>
+                        <Label text="Informações:"
+                               style="-fx-font-weight: bold; -fx-text-fill: #2196F3;"/>
+                        <Label text="• Campos marcados com * são obrigatórios"
+                               style="-fx-text-fill: #555; -fx-font-size: 12px;"/>
+                        <Label text="• Sua senha é criptografada e segura"
+                               style="-fx-text-fill: #555; -fx-font-size: 12px;"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Footer -->
+                <VBox alignment="CENTER" spacing="5">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="© 2024 MediSchedule - Sistema de Agendamento Médico"
+                           style="-fx-text-fill: #95A5A6; -fx-font-size: 12px;"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
